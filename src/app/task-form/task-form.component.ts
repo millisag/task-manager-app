@@ -7,4 +7,13 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './task-form.component.html',
   styleUrl: './task-form.component.css'
 })
-export class TaskFormComponent {}
+export class TaskFormComponent {
+  newTaskTitle = signal<string>('');
+
+  addTask() {
+    if (this.newTaskTitle()) {
+      console.log(`New Task Added: ${this.newTaskTitle()}`);
+      this.newTaskTitle.set(''); 
+    }
+  }
+} 
